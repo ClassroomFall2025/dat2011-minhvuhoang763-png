@@ -1,39 +1,27 @@
-from abc import ABC, abstractmethod
 
-class SinhVienPoly(ABC):
-    def __init__(self, ho_ten, nganh):
-        self.ho_ten = ho_ten
-        self.nganh = nganh
+class SinhVienPoly:
+    def __init__(self, ho_ten, nganh, diem):
+        self.__ho_ten = ho_ten
+        self.__nganh = nganh
+        self.__diem = diem
 
-    @abstractmethod
     def get_diem(self):
-        pass  # phương thức trừu tượng, chưa có cách tính điểm
+        return self.__diem
 
     def get_hoc_luc(self):
-        diem = self.get_diem()
-        if diem < 5:
+        if self.__diem < 5:
             return "Yếu"
-        elif diem < 7:
+        elif self.__diem < 7:
             return "Trung bình"
-        elif diem < 8:
+        elif self.__diem < 8:
             return "Khá"
-        elif diem < 9:
+        elif self.__diem < 9:
             return "Giỏi"
         else:
             return "Xuất sắc"
 
     def xuat(self):
-        print(f"Họ tên: {self.ho_ten}")
-        print(f"Ngành: {self.nganh}")
-        print(f"Điểm: {self.get_diem():.2f}")
+        print(f"Họ tên: {self.__ho_ten}")
+        print(f"Ngành: {self.__nganh}")
+        print(f"Điểm: {self.__diem:.2f}")
         print(f"Học lực: {self.get_hoc_luc()}")
-
-
-# Lớp con cụ thể để kiểm thử lớp trừu tượng
-class SinhVienTest(SinhVienPoly):
-    def __init__(self, ho_ten, nganh, diem):
-        super().__init__(ho_ten, nganh)
-        self._diem = diem
-
-    def get_diem(self):
-        return self._diem
