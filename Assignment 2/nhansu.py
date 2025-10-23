@@ -174,3 +174,5 @@ class TruongPhong(NhanVien):
           f" {0.0:<16,.0f}| {0.0:<10.2f}|"
           f" {self.luong_trach_nhiem:<18,.0f}| {self.thu_nhap:<16,.0f}| {self.thue_thu_nhap:<16,.0f}")
 
+nv = NhaVien()
+nv.ma_nv = "NV001"
